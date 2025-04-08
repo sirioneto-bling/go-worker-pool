@@ -161,32 +161,10 @@ func handleRequestError(err error) {
 
 ## 🧪 Benchmark
 
-Para rodar um benchmark:
+Para rodar os testes de benchmark, execute:
 
 ```bash
-go test -bench=. ./work
-```
-
-Você pode criar um teste benchmark assim:
-
-```go
-func BenchmarkWorkerPool(b *testing.B) {
-	pool, _ := work.NewPool(50, 100)
-	ctx := context.Background()
-	pool.Start(ctx)
-
-	job := work.NewJobWithResult(func() (any, error) {
-		time.Sleep(10 * time.Millisecond)
-		return "ok", nil
-	}, func(err error) {})
-
-	for i := 0; i < b.N; i++ {
-		pool.AddJob(job)
-	}
-
-	pool.WaitJobs()
-	pool.Stop()
-}
+go test -bench=. ./tests
 ```
 
 ---
