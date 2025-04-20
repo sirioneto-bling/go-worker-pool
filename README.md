@@ -8,7 +8,7 @@ Fornecer uma estrutura reutilizável e robusta para:
 
 - Executar tarefas em paralelo.
 - Processar resultados com tratamento de erro.
-- Controlar o encerramento gracioso do pool.
+- Encerramento controlado (graceful shutdown) do worker pool.
 - Aplicar em cenários variados (requisições massivas via API, consumidores Kafka, etc).
 
 ## ✅ Funcionalidades
