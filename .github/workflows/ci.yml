@@ -43,13 +43,13 @@ jobs:
       - name: Convert coverage to lcov
         run: |
           go install github.com/jandelgado/gcov2lcov@latest
-          gcov2lcov -infile=coverage.out -outfile=coverage.lcov
+          gcov2lcov -infile=coverage.out -outfile=lcov.info
 
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: coverage.lcov
+          path: coverage/lcov.info
 
   sonarcloud-analysis:
     runs-on: ubuntu-latest
@@ -58,10 +58,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Download Coverage Report
+      - name: Download Coverage Report Artifact
         uses: actions/download-artifact@v4
         with:
           name: coverage-report
+
+      - name: Create Coverage Directory
+        run: mkdir -p coverage
+
+      - name: Move Coverage Report
+        run: mv lcov.info coverage/
+
+      - name: List Coverage Directory
+        run: ls -la coverage
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v5.0.0
@@ -71,7 +80,7 @@ jobs:
             -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
             -Dsonar.sources=.
             -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.go.coverage.reportPaths=coverage-report/coverage.lcov
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
             -Dsonar.exclusions=**/*_test.go,**/vendor/**
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
