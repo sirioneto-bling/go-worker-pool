@@ -1,5 +1,4 @@
 [![Continuous Integration Status](https://github.com/sirioneto-bling/go-worker-pool/actions/workflows/ci.yml/badge.svg)](https://github.com/sirioneto-bling/go-worker-pool/actions/workflows/ci.yml)
-[![Continuous Deploy Status](https://github.com/sirioneto-bling/go-worker-pool/actions/workflows/cd.yml/badge.svg)](https://github.com/sirioneto-bling/go-worker-pool/actions/workflows/cd.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sirioneto-bling_go-worker-pool&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=sirioneto-bling_go-worker-pool)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=sirioneto-bling_go-worker-pool&metric=coverage)](https://sonarcloud.io/summary/new_code?id=sirioneto-bling_go-worker-pool)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=sirioneto-bling_go-worker-pool&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=sirioneto-bling_go-worker-pool)
