@@ -49,7 +49,7 @@ jobs:
 
   sonarcloud-analysis:
     runs-on: ubuntu-latest
-    needs: [test-and-coverage]
+    needs: [code-lint, test-and-coverage]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
