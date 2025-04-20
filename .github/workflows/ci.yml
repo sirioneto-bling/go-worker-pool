@@ -71,7 +71,7 @@ jobs:
             -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
             -Dsonar.sources=.
             -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.go.coverage.reportPaths=coverage.lcov
+            -Dsonar.go.coverage.reportPaths=coverage-report/coverage.lcov
             -Dsonar.exclusions=**/*_test.go,**/vendor/**
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
